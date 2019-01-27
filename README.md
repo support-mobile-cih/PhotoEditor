@@ -1,9 +1,10 @@
 # PhotoEditor
 
+[![CircleCI](https://circleci.com/gh/burhanrashid52/PhotoEditor.svg?style=svg)](https://circleci.com/gh/burhanrashid52/PhotoEditor)
 [![Downloads](https://img.shields.io/badge/Download-0.3.3-blue.svg)](https://bintray.com/burhanrashid52/maven/photoeditor) ![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg) [![JavaDoc](https://img.shields.io/badge/JavaDoc-PhotoEditor-blue.svg)](https://burhanrashid52.github.io/PhotoEditor/) [![Uplabs](https://img.shields.io/badge/Uplabs-PhotoEditor-orange.svg)](https://www.uplabs.com/posts/photoeditor)
- [![AndroidArsenal](https://img.shields.io/badge/Android%20Arsenal-PhotoEditor-blue.svg)](https://android-arsenal.com/details/1/6736) 
- [![AndroidDevDigest](https://img.shields.io/badge/AndroidDev%20Digest-%23185-brightgreen.svg)](https://www.androiddevdigest.com/digest-185)
- [![AwesomeAndroid](https://img.shields.io/badge/Awesome%20Android-%2397-red.svg)](https://android.libhunt.com/newsletter/97)
+[![AndroidArsenal](https://img.shields.io/badge/Android%20Arsenal-PhotoEditor-blue.svg)](https://android-arsenal.com/details/1/6736)
+[![AndroidDevDigest](https://img.shields.io/badge/AndroidDev%20Digest-%23185-brightgreen.svg)](https://www.androiddevdigest.com/digest-185)
+[![AwesomeAndroid](https://img.shields.io/badge/Awesome%20Android-%2397-red.svg)](https://android.libhunt.com/newsletter/97)
 [![AndroidWeekly](https://img.shields.io/badge/Android%20Weekly-%23312-blue.svg)](http://androidweekly.net/issues/issue-312)
 [![Mindorks](https://img.shields.io/badge/Mindorks%20Newsletter-%234-ff69b4.svg)](https://mindorks.com/newsletter/edition/4)
 
@@ -32,7 +33,7 @@ A Photo Editor library with simple, easy support for image editing using paints,
 
 ## Getting Started
 To start with this , you need to just simply add the dependencies in gradle file of app module like this
-```
+```java
 implementation 'ja.burhanrashid52:photoeditor:0.3.3'
 ```
 or your can also import the :photoeditor module from sample for customization
@@ -41,7 +42,7 @@ or your can also import the :photoeditor module from sample for customization
 ## Setting up the View
 First you need to add `PhotoEditorView` in your xml layout
 
-```
+```xml
  <ja.burhanrashid52.photoeditor.PhotoEditorView
         android:id="@+id/photoEditorView"
         android:layout_width="match_parent"
@@ -52,7 +53,7 @@ First you need to add `PhotoEditorView` in your xml layout
 Your can define your drawable or color resource directly using `app:photo_src`
 
 Your can set the image programmatically by getting source from `PhotoEditorView` which will return a `ImageView` so that you can load image from resources,file or (Picasso/Glide)
-```
+```java
 PhotoEditorView mPhotoEditorView = findViewById(R.id.photoEditorView);
 
 mPhotoEditorView.getSource().setImageResource(R.drawable.got);
@@ -62,7 +63,7 @@ mPhotoEditorView.getSource().setImageResource(R.drawable.got);
 To use the image editing feature you need to build a PhotoEditor which requires a Context and PhotoEditorView which we have setup in our xml layout
 
 
-```
+```java
 //Use custom font using latest support library
 Typeface mTextRobotoTf = ResourcesCompat.getFont(this, R.font.roboto_medium);
 
@@ -131,7 +132,7 @@ It will take default fonts provided in the builder,If you want different fonts f
 
 In order to edit the text you need the view which you will receive in you PhotoEditor callback.This callback will trigger when you **Long Press** the added text
 
- ```
+ ```java
  mPhotoEditor.setOnPhotoEditorListener(new OnPhotoEditorListener() {
             @Override
             public void onEditTextChangeListener(View rootView, String text, int colorCode) {
@@ -171,7 +172,7 @@ It will take default fonts provided in the builder,If you want different Emoji f
 
 ![](https://i.imgur.com/1Y9WcCB.gif)
 
- ```
+ ```java
    mPhotoEditor.undo();
    mPhotoEditor.redo();
  ```
@@ -188,7 +189,7 @@ It will take default fonts provided in the builder,If you want different Emoji f
    
    You need provide a file with callback method when edited image is saved
    
-   ```
+   ```java
     mPhotoEditor.saveAsFile(filePath, new PhotoEditor.OnSaveListener() {
                     @Override
                     public void onSuccess(@NonNull String imagePath) {
