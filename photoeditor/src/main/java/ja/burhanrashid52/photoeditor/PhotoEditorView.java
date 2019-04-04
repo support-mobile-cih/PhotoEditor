@@ -61,6 +61,9 @@ public class PhotoEditorView extends RelativeLayout {
 
     @SuppressLint("Recycle")
     private void init(@Nullable AttributeSet attrs) {
+
+        setOnTouchListener(new ZoomTouchListener());
+
         //Setup image attributes
         mImgSource = new FilterImageView(getContext());
         mImgSource.setId(imgSrcId);

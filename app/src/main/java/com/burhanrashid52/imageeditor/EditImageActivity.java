@@ -344,6 +344,10 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
     @Override
     public void onToolSelected(ToolType toolType) {
         switch (toolType) {
+            case PAN:
+                mPhotoEditor.setBrushDrawingMode(false);
+                mTxtCurrentTool.setText(R.string.label_pan);
+                break;
             case BRUSH:
                 mPhotoEditor.setBrushDrawingMode(true);
                 mTxtCurrentTool.setText(R.string.label_brush);
